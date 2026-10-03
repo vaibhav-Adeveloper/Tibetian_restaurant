@@ -1,0 +1,26 @@
+1. in About Our Restaurant below Awesome reviews and right to Great Ambience place a button with same ui/ux as 
+of order now button having text View Resraurant in which i will show the real pictures of the tibetian
+ restaurant.after clicking the button a modal will open in which user can see one single images in one window
+  and can slide to other pages by clicking the arrow, for now you can place dummy images (3-4 images).
+
+
+2. add a position fixed type button having the text View Restaurant at the bottom right of the window screen ,
+ its ui/ux must be of like reserve table button on the hero-banner image. in this when user click the button
+  a modal will open and modal must be of medium size, not to big and in each single window we can show single 
+  high quality images of the real tibet restaurant that our client we are making for and also add a arrow to
+   slide the image left and rights, we can add multiple images in this window,   also add a css transition 
+   that will slide the image automatically to next image after 1.5 seconds.
+
+3. have to place the view resturant button
+
+4. when we test api at http://localhost:3001/api/reservations
+// output : 
+    "success": false,
+    "message": "Failed to save reservation",
+    "error": "Cannot read properties of undefined (reading 'date')"
+
+  
+5. create a sign up or login page at the right of reserve table button which  is at the header, after 
+clicking the sign up button a new modal will open and a sign up window will open and if user is coming 
+to website it will show the sign up page in that sign up page , login ,if already have a account must also 
+be there if user have logged in previously.

@@ -1,0 +1,6 @@
+1. login page/sign up page.
+2. authentication.
+3. payment gateway intergration.
+4. messaging system.
+5. confirmation system.
+6. 
