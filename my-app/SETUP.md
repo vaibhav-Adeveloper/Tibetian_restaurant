@@ -25,19 +25,20 @@ npm install
 ### Step 2: Configure Environment Variables
 
 #### Backend Configuration
-Create a `.env` file in the `backend` folder:
+Copy `backend/.env.example` to `backend/.env` and configure it:
 ```env
-MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/tibetan-restaurant?retryWrites=true&w=majority
+MONGODB_URI=mongodb://127.0.0.1:27017/tibetan-restaurant
 PORT=5000
-STRIPE_SECRET_KEY=sk_test_your_stripe_secret_key_here
-STRIPE_PUBLISHABLE_KEY=pk_test_your_stripe_publishable_key_here
 ```
 
 #### Frontend Configuration
-Create a `.env` file in the `my-app` folder:
+Copy `.env.example` to `.env` in the `my-app` folder and configure only public values:
 ```env
-REACT_APP_GOOGLE_MAPS_API_KEY=your_google_maps_api_key_here
+REACT_APP_GOOGLE_MAPS_API_KEY=your_google_maps_api_key
+REACT_APP_STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key
 ```
+
+**Important:** Create React App embeds `REACT_APP_*` values in the browser bundle, so never put secrets there. Keep database credentials and payment secret keys in backend-only environment variables. Restrict public API keys using the provider's dashboard. The `.env` files are ignored by Git; only the `.env.example` templates should be committed.
 
 ### Step 3: Get API Keys
 
@@ -51,7 +52,9 @@ REACT_APP_GOOGLE_MAPS_API_KEY=your_google_maps_api_key_here
 #### Stripe API Keys (Optional - for payment processing)
 1. Go to [Stripe Dashboard](https://dashboard.stripe.com/apikeys)
 2. Copy your **Test Secret Key** and **Test Publishable Key**
-3. Add them to your `.env` files
+3. Store the secret key only in the backend `.env`; set the publishable key as `REACT_APP_STRIPE_PUBLISHABLE_KEY` in the frontend `.env` (publishable keys are visible in the browser).
+
+The current backend does not implement the payment-intent routes used by the frontend, so the Stripe checkout flow needs backend implementation before it can process payments.
 
 #### MongoDB Atlas Connection String
 1. Go to [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)

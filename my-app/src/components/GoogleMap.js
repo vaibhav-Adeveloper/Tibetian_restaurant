@@ -9,7 +9,7 @@ const GoogleMap = () => {
       try {
         // Set API key
         setOptions({
-          apiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY || 'YOUR_API_KEY_HERE',
+          apiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
           version: 'weekly',
           libraries: ['places']
         });

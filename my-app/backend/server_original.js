@@ -1,7 +1,7 @@
 // const express = require('express');
 // const mongoose = require('mongoose');
 // const cors = require('cors');
-// const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY || 'sk_test_51234567890abcdefghijklmnopqrstuvwxyz'); // Use env variable for security
+// const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 // require('dotenv').config();
 
 // const app = express();

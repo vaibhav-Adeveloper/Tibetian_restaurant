@@ -3,7 +3,7 @@ import { loadStripe } from '@stripe/stripe-js';
 import axios from 'axios';
 import './PaymentModal.css';
 
-const stripePromise = loadStripe('pk_test_51234567890abcdefghijklmnopqrstuvwxyz'); // Test publishable key
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
 
 const PaymentModal = ({ isOpen, onClose, orderData, onPaymentSuccess }) => {
   const [loading, setLoading] = useState(false);

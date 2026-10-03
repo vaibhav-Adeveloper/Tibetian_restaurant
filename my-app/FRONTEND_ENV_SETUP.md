@@ -3,37 +3,15 @@
 ## 📁 Frontend .env File Location
 **Create this file:** `my-app/.env` (in the root of my-app, NOT in src folder)
 
-## 🔑 Required Environment Variable
+## Environment Variables
 
-### Google Maps API Key
-**Variable Name:** `REACT_APP_GOOGLE_MAPS_API_KEY`
-
-**How to get it:**
-1. Go to [Google Cloud Console](https://console.cloud.google.com/)
-2. Create a new project or select existing one
-3. Enable "Maps JavaScript API" and "Places API"
-   - Go to "APIs & Services" → "Library"
-   - Search for "Maps JavaScript API" → Click "Enable"
-   - Search for "Places API" → Click "Enable"
-4. Go to "APIs & Services" → "Credentials"
-5. Click "Create Credentials" → "API Key"
-6. Copy the API key
-7. (Optional) Restrict the API key for security
-
-**Example:**
-```env
-REACT_APP_GOOGLE_MAPS_API_KEY=AIzaSyB1234567890abcdefghijklmnopqrstuv
-```
-
-**Important:** 
-- Must start with `REACT_APP_` to work in React
-- Restart React dev server after creating/updating
-
-## 📝 Complete .env File Example
-
-Create `my-app/.env` with this content:
+Copy `.env.example` to `.env` in the `my-app` folder and set the public configuration values you use:
 
 ```env
-REACT_APP_GOOGLE_MAPS_API_KEY=your_google_maps_api_key_here
+REACT_APP_GOOGLE_MAPS_API_KEY=your_google_maps_api_key
+REACT_APP_STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key
 ```
 
+`REACT_APP_*` variables are embedded in the frontend JavaScript bundle and are visible to anyone using the site. Never put passwords, database connection strings, Stripe secret keys, or other private credentials in frontend variables. Google Maps keys and Stripe publishable keys are intended for public use; restrict them in their provider dashboards (for example, restrict the Maps key by website referrer and enabled APIs).
+
+For a Google Maps key, enable the Maps JavaScript API and any other APIs the app uses in [Google Cloud Console](https://console.cloud.google.com/), then restrict the key to your site and required APIs. Restart the React development server after changing `.env`.

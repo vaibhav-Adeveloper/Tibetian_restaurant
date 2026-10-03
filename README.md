@@ -34,6 +34,10 @@ For detailed setup and run instructions, see the project README in:
 
 - [my-app/README.md](./my-app/README.md)
 
+## GitHub and secrets
+
+Local `.env` files and private-key files are ignored by Git. Copy the committed `.env.example` templates to `.env` and add your own local values; never commit real credentials. Values prefixed with `REACT_APP_` are included in the public frontend bundle, so use them only for public keys/configuration and restrict those keys with their provider. Keep database credentials and other secrets in backend-only environment variables.
+
 ## Notes
 
 This project is currently structured as a demo/portfolio restaurant app and is a strong base for future expansion, including authentication, admin features, and production deployment.

@@ -68,7 +68,7 @@ my-app/
 │   ├── models/             # Mongoose schemas/models
 │   ├── server.js           # Backend API server
 │   └── package.json
-├── .env                    # Frontend environment variables
+├── .env.example            # Safe frontend environment template
 ├── package.json            # Frontend dependencies and scripts
 ├── README.md               # Project documentation
 ├── SETUP.md                # Setup notes
@@ -105,21 +105,22 @@ npm install
 ## Environment Setup
 
 ### Frontend `.env`
-Create a `.env` file in the `my-app` folder:
+Copy `my-app/.env.example` to `my-app/.env` and set your public frontend configuration:
 
 ```env
-REACT_APP_GOOGLE_MAPS_API_KEY=your_google_maps_api_key_here
+REACT_APP_GOOGLE_MAPS_API_KEY=your_google_maps_api_key
+REACT_APP_STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key
 ```
 
 ### Backend `.env`
-Create a `.env` file in the `backend` folder:
+Copy `my-app/backend/.env.example` to `my-app/backend/.env` and set your local backend configuration:
 
 ```env
 MONGODB_URI=mongodb://127.0.0.1:27017/tibetan-restaurant
 PORT=5000
-STRIPE_SECRET_KEY=your_stripe_secret_key
-STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key
 ```
+
+Never place private credentials in frontend variables: Create React App embeds all `REACT_APP_*` values in the public browser bundle. Google Maps API keys and Stripe publishable keys are public values and should be restricted through their provider dashboards. Database credentials and Stripe secret keys must remain in backend-only environment variables.
 
 ## Running the App
 
